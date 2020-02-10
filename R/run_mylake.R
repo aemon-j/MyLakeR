@@ -1,13 +1,12 @@
 run_mylake <- function(sim_folder = ".") {
   
   mylake_path <- system.file(package="MyLakeR")
-  
-  setwd(mylake_path)
-  
+
   # load required data:
-  load("./extdata/albedot1.bin",envir=.GlobalEnv)
+  load(file.path(mylake_path,"extdata","albedot1.bin"),envir=.GlobalEnv)
   
-  meteo<-read.table(file.path(sim_folder,"MyLake","meteo_file.dat"))
+  setwd(sim_folder)
+  meteo<-read.table(file.path("MyLake","meteo_file.dat"))
   
   Wt<<-as.matrix(meteo[,2:8])
   tt<<-as.matrix(meteo[,1])
