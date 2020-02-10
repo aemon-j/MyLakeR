@@ -107,11 +107,15 @@ run_mylake <- function(sim_folder = ".") {
   
   save(res, file=file.path(sim_folder,"MyLake","output","output.RData"))
   
-  rm(Wt,tt,In_Tz,In_Z,M_start,M_stop,Bio_par_names,Bio_par_range,Bio_par,
-     Phys_par_names,Phys_par_range,Phys_par,Inflw,Ice0,In_FIM,In_Chlz_sed,
-     In_TPz_sed,In_DOCz,In_Chlz,In_DOPz,In_TPz,In_Sz,In_Cz,In_Az,
-     g,sigmaSB,eps_air,gas_const_R,CtoK,kappa_val,Charnock_alpha,R_roughness,
-     cp,rho_air,Ta_default,P_default,psych_default,Qsat_coeff,CVB_depth,
-     min_gustiness,beta_conv,Solar_const,emiss_lw,bulkf_default)
+  rm(albedot1)
+  
+  rm(list=c("Wt","tt","In_Tz","In_Z","M_start","M_stop","Bio_par_names","Bio_par_range",
+            "Bio_par","Phys_par_names","Phys_par_range","Phys_par","Inflw","Ice0","In_FIM",
+            "In_Chlz_sed","In_TPz_sed","In_DOCz","In_Chlz","In_DOPz","In_TPz","In_Sz",
+            "In_Cz","In_Az","g","sigmaSB","eps_air","gas_const_R","CtoK","kappa_val",
+            "Charnock_alpha","R_roughness","cp","rho_air","Ta_default","P_default",
+            "psych_default","Qsat_coeff","CVB_depth","min_gustiness","beta_conv",
+            "Solar_const","emiss_lw","bulkf_default"),
+     pos = ".GlobalEnv")
   
 }
