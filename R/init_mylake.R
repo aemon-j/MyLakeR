@@ -41,8 +41,6 @@ init_mylake <- function(model = 'MyLake', wtemp_file, date, folder = '.'){
     
     mylake_config[["Phys.par"]][1]=median(diff(mylake_init$In.Z))
     
-    mylake_config[["Phys.par"]][5]=1-exp(-0.3*(deps_Az$Az[1]*1e-6))
-    
     save(mylake_config,file=file.path(folder,"MyLake","mylake_config_final.Rdata"))
     
     save(mylake_init,file=file.path(folder,"MyLake","mylake_init.Rdata"))

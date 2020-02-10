@@ -21,7 +21,9 @@ config_mylake <- function(config_file, model = 'MyLake', folder = '.'){
   # Output depths
   output_depths <- gotmtools::get_yaml_value(config_file, "model_settings", "output_depths")
   # Extinction coefficient (swa_b1)
-  ext_coef <- gotmtools::get_yaml_value(config_file, "model_settings", "extinction_coefficient")
+  ext_coef <- gotmtools::get_yaml_value(config_file, "light", "Kw")
+  # wind sheltering coefficient (C_shelter)
+  c_shelter <- gotmtools::get_yaml_value(config_file, "MyLake", "C_shelter")
   # Use ice
   use_ice <- gotmtools::get_yaml_value(config_file, "ice", "use")
   # Use inflows
@@ -36,6 +38,11 @@ config_mylake <- function(config_file, model = 'MyLake', folder = '.'){
       dir.create('MyLake')
     }
     
+    if(is.na(as.numeric(c_shelter))){
+      c_shelter <- 1.0-exp(-0.3*(hyp$Area_meterSquared[1]*1e-6))
+    }
+    
+    
     mylake_path <- system.file(package="MyLakeR")
 
     load(file.path(mylake_path,"extdata","mylake_config_template.Rdata"))
@@ -43,6 +50,8 @@ config_mylake <- function(config_file, model = 'MyLake', folder = '.'){
     mylake_config[["M_start"]]=start_date
     
     mylake_config[["M_stop"]]=stop_date
+    
+    mylake_config[["Phys.par"]][5]=c_shelter
     
     mylake_config[["Phys.par"]][6]=lat
     
