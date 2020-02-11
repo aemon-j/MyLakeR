@@ -17,7 +17,7 @@ config_mylake <- function(config_file, model = 'MyLake', folder = '.'){
   # Time step
   timestep <- gotmtools::get_yaml_value(config_file, "time", "timestep")
   # Met time step
-  met_timestep <- gotmtools::get_yaml_value(config_file, "meteo", "timestep")
+  #met_timestep <- gotmtools::get_yaml_value(config_file, "input", "meteo")
   # Output depths
   output_depths <- gotmtools::get_yaml_value(config_file, "model_settings", "output_depths")
   # Extinction coefficient (swa_b1)
