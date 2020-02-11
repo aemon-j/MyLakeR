@@ -50,6 +50,8 @@ config_mylake <- function(config_file, model = 'MyLake', folder = '.'){
     mylake_config[["M_start"]]=start_date
     
     mylake_config[["M_stop"]]=stop_date
+
+    mylake_config[["Phys.par"]][1]=output_depths
     
     mylake_config[["Phys.par"]][5]=c_shelter
     
