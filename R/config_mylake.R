@@ -19,7 +19,7 @@ config_mylake <- function(config_file, model = 'MyLake', folder = '.'){
   # Met time step
   met_timestep <- gotmtools::get_yaml_value(config_file, "input", "meteo")
   # Output depths
-  output_depths <- gotmtools::get_yaml_value(config_file, "model_settings", "output_depths")
+  output_depths <- get_yaml_value(config_file, "output", "depths")
   # Extinction coefficient (swa_b1)
   ext_coef <- gotmtools::get_yaml_value(config_file, "light", "Kw")
   # wind sheltering coefficient (C_shelter)
@@ -50,7 +50,7 @@ config_mylake <- function(config_file, model = 'MyLake', folder = '.'){
     mylake_config[["M_start"]]=start_date
     
     mylake_config[["M_stop"]]=stop_date
-
+    
     mylake_config[["Phys.par"]][5]=c_shelter
     
     mylake_config[["Phys.par"]][6]=lat

@@ -107,7 +107,7 @@ run_mylake <- function(sim_folder = ".") {
   
   save(res, file=file.path(sim_folder,"MyLake","output","output.RData"))
   
-  rm(albedot1)
+  rm("albedot1", pos = ".GlobalEnv")
   
   rm(list=c("Wt","tt","In_Tz","In_Z","M_start","M_stop","Bio_par_names","Bio_par_range",
             "Bio_par","Phys_par_names","Phys_par_range","Phys_par","Inflw","Ice0","In_FIM",
