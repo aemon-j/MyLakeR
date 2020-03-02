@@ -4,7 +4,7 @@ My Lake initial implementation in R
 ## Installation
 ```{r gh-installation, eval = FALSE}
 # install.packages("devtools")
-devtools::install_github("rmpilla/MyLakeR")
+devtools::install_github("aemon-j/MyLakeR")
 library(MyLakeR)
 ```
 
