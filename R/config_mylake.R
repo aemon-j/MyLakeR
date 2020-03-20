@@ -1,4 +1,6 @@
-config_mylake <- function(config_file, model = 'MyLake', folder = '.'){
+config_mylake <- function(config_file, model = 'MyLake', folder = '.',
+                          config_dat = "mylake_config_final.Rdata",
+                          config_template = "mylake_config_template.Rdata"){
   
   setwd(folder)
   
@@ -45,7 +47,7 @@ config_mylake <- function(config_file, model = 'MyLake', folder = '.'){
     
     mylake_path <- system.file(package="MyLakeR")
 
-    load(file.path(mylake_path,"extdata","mylake_config_template.Rdata"))
+    load(file.path(mylake_path,"extdata", config_template))
     
     mylake_config[["M_start"]]=start_date
     
@@ -88,7 +90,7 @@ config_mylake <- function(config_file, model = 'MyLake', folder = '.'){
       
     }
     
-    save(mylake_config,file=file.path(folder,"MyLake","mylake_config_final.Rdata"))
+    save(mylake_config,file=file.path(folder,"MyLake", config_dat))
     
   }
    

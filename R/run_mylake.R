@@ -1,4 +1,5 @@
-run_mylake <- function(sim_folder = ".") {
+run_mylake <- function(sim_folder = ".", init_dat = "mylake_init.Rdata",
+                       config_dat = "mylake_config_final.Rdata") {
   
   ##############
   ## move input data and parameter values (moved from "run_mylake.R")
@@ -13,12 +14,12 @@ run_mylake <- function(sim_folder = ".") {
   assign("Wt", as.matrix(meteo[,2:8]), envir=.GlobalEnv)
   assign("tt", as.matrix(meteo[,1]), envir=.GlobalEnv)
   
-  load(file.path(sim_folder,"MyLake","mylake_init.Rdata"))
+  load(file.path(sim_folder,"MyLake", init_dat))
   
   assign("In_Tz", mylake_init[["In.Tz"]], envir=.GlobalEnv)
   assign("In_Z", mylake_init[["In.Z"]], envir=.GlobalEnv)
   
-  load(file.path(sim_folder,"MyLake","mylake_config_final.Rdata"))
+  load(file.path(sim_folder,"MyLake", config_dat))
   
   assign("M_start", floor(as.numeric(as.POSIXct(mylake_config[["M_start"]]))/86400+719529), envir=.GlobalEnv)
   assign("M_stop", floor(as.numeric(as.POSIXct(mylake_config[["M_stop"]]))/86400+719529), envir=.GlobalEnv)
