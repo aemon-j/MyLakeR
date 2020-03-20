@@ -18,7 +18,7 @@ init_mylake <- function(model = 'MyLake', wtemp_file, date, folder = '.',
       dir.create('MyLake')
     }
     
-    load(file.path(".","MyLake",config_dat)
+    load(file.path(".","MyLake", config_dat))
     
     mylake_init <- list()
     
