@@ -1,4 +1,6 @@
-init_mylake <- function(model = 'MyLake', wtemp_file, date, folder = '.'){
+init_mylake <- function(model = 'MyLake', wtemp_file, date, folder = '.',
+                        config_dat = "mylake_config_final.Rdata",
+                        init_dat = "mylake_init.Rdata"){
   
   setwd(folder)
   obs <- read.csv(wtemp_file)
@@ -16,7 +18,7 @@ init_mylake <- function(model = 'MyLake', wtemp_file, date, folder = '.'){
       dir.create('MyLake')
     }
     
-    load("./MyLake/mylake_config_final.Rdata")
+    load(file.path(".","MyLake",config_dat)
     
     mylake_init <- list()
     
@@ -41,9 +43,9 @@ init_mylake <- function(model = 'MyLake', wtemp_file, date, folder = '.'){
     
     mylake_config[["Phys.par"]][1]=median(diff(mylake_init$In.Z))
     
-    save(mylake_config,file=file.path(folder,"MyLake","mylake_config_final.Rdata"))
+    save(mylake_config,file=file.path(folder,"MyLake", config_dat))
     
-    save(mylake_init,file=file.path(folder,"MyLake","mylake_init.Rdata"))
+    save(mylake_init,file=file.path(folder,"MyLake", init_dat))
     
   }
 }
