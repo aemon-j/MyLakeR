@@ -1,0 +1,18 @@
+citHeader("To cite MyLakeR in publications use:")
+
+citEntry(
+  entry    = "Article",
+  title    = "{MyLake}—{A} multi-year lake simulation model code suitable for uncertainty and sensitivity analysis simulations",
+  author   = "Saloranta, Tuomo M. and Andersen, Tom",
+  journal  = "Ecological Modelling",
+  series = "Uncertainty in Ecological Models",
+  year     = "2007",
+  volume   = "207",
+  number   = "1",
+  pages    = "45--60",
+  doi = "10.1016/j.ecolmodel.2007.03.018",
+  textVersion = paste("Saloranta, Tuomo M., and Tom Andersen. 2007.",
+		      "MyLake—A Multi-Year Lake Simulation Model Code Suitable for Uncertainty and Sensitivity Analysis Simulations.",
+		      " Ecological Modelling,", " Uncertainty in Ecological Models, 207 (1): 45–60. ",
+		      "https://doi.org/10.1016/j.ecolmodel.2007.03.018.")
+)
