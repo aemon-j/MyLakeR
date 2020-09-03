@@ -81,9 +81,10 @@ dt<-1.0				  #model time step = 1 day (DO NOT CHANGE!)
 
 # Unpack the more fixed parameter values from input array "Phys_par"
 dz <- Phys_par[1] #grid stepsize (m)
+dz <- dz[[1]]
 
-   zm <- In_Z[length(In_Z)]; #max depth
-   zz <- matrix(0:(zm-1)); #solution depth domain
+zm <- In_Z[length(In_Z)]; #max depth
+zz <- matrix(0:(zm-1)); #solution depth domain
 
 Kz_K1 <- Phys_par[2]; # open water diffusion parameter (-)
 Kz_K1_ice <- Phys_par[3]; # under ice diffusion parameter (-)
@@ -172,7 +173,7 @@ MixStat <- matrix(nrow=20,ncol=length(tt))
 
 # Initial profiles
   Az <- approx(In_Z,In_Az,zz)$y
-  Vz <- dz[[1]] * (Az + c(Az[2:length(Az)],0)) / 2
+  Vz <- dz * (Az + c(Az[2:length(Az)],0)) / 2
 
    T0 <- approx(In_Z,In_Tz,zz+dz/2)$y; # Initial temperature distribution (deg C)
    C0 <- approx(In_Z,In_Cz,zz+dz/2)$y; # Initial passive tracer distribution (-)
