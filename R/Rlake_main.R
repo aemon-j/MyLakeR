@@ -80,53 +80,52 @@ dt<-1.0				  #model time step = 1 day (DO NOT CHANGE!)
 
 
 # Unpack the more fixed parameter values from input array "Phys_par"
-dz <- Phys_par[1] #grid stepsize (m)
-dz <- dz[[1]]
+dz <- Phys_par[[1]] #grid stepsize (m)
 
 zm <- In_Z[length(In_Z)]; #max depth
 zz <- matrix(0:(zm-1)); #solution depth domain
 
-Kz_K1 <- Phys_par[2]; # open water diffusion parameter (-)
-Kz_K1_ice <- Phys_par[3]; # under ice diffusion parameter (-)
-Kz_N0 = Phys_par[4]; # min. stability frequency (s-2)
-C_shelter <- Phys_par[5]; # wind shelter parameter (-)
-lat <- Phys_par[6]; #latitude (decimal degrees)
-lon <- Phys_par[7]; #longitude (decimal degrees)
-alb_melt_ice <- Phys_par[8];   #albedo of melting ice (-)
-alb_melt_snow <- Phys_par[9]; #albedo of melting snow (-)
-PAR_sat <- Phys_par[10];         #PAR saturation level for phytoplankton growth (mol(quanta) m-2 s-1) 
-f_par <- Phys_par[11];           #Fraction of PAR in incoming solar radiation (-)
-beta_chl <- Phys_par[12];        #Optical cross_section of chlorophyll (m2 mg-1)
-lambda_i <- Phys_par[13];       #PAR light attenuation coefficient for ice (m-1)
-lambda_s <- Phys_par[14];       #PAR light attenuation coefficient for snow (m-1)
-F_sed_sld <- Phys_par[15];      #volume fraction of solids in sediment (= 1-porosity)
-I_scV <- Phys_par[16]; #scaling factor for inflow volume (-)
-I_scT <- Phys_par[17]; #scaling coefficient for inflow temperature (-) 
-I_scC <- Phys_par[18]; #scaling factor for inflow concentration of C (-)
-I_scS <- Phys_par[19]; #scaling factor for inflow concentration of S (-)
-I_scTP <- Phys_par[20]; #scaling factor for inflow concentration of total P (-)
-I_scDOP <- Phys_par[21]; #scaling factor for inflow concentration of diss. organic P (-)
-I_scChl <- Phys_par[22]; #scaling factor for inflow concentration of Chl a (-)
-I_scDOC <- Phys_par[23]; #scaling factor for inflow concentration of DOC  (-)
+Kz_K1 <- Phys_par[[2]]; # open water diffusion parameter (-)
+Kz_K1_ice <- Phys_par[[3]]; # under ice diffusion parameter (-)
+Kz_N0 = Phys_par[[4]]; # min. stability frequency (s-2)
+C_shelter <- Phys_par[[5]]; # wind shelter parameter (-)
+lat <- Phys_par[[6]]; #latitude (decimal degrees)
+lon <- Phys_par[[7]]; #longitude (decimal degrees)
+alb_melt_ice <- Phys_par[[8]];   #albedo of melting ice (-)
+alb_melt_snow <- Phys_par[[9]]; #albedo of melting snow (-)
+PAR_sat <- Phys_par[[10]];         #PAR saturation level for phytoplankton growth (mol(quanta) m-2 s-1) 
+f_par <- Phys_par[[11]];           #Fraction of PAR in incoming solar radiation (-)
+beta_chl <- Phys_par[[12]];        #Optical cross_section of chlorophyll (m2 mg-1)
+lambda_i <- Phys_par[[13]];       #PAR light attenuation coefficient for ice (m-1)
+lambda_s <- Phys_par[[14]];       #PAR light attenuation coefficient for snow (m-1)
+F_sed_sld <- Phys_par[[15]];      #volume fraction of solids in sediment (= 1-porosity)
+I_scV <- Phys_par[[16]]; #scaling factor for inflow volume (-)
+I_scT <- Phys_par[[17]]; #scaling coefficient for inflow temperature (-) 
+I_scC <- Phys_par[[18]]; #scaling factor for inflow concentration of C (-)
+I_scS <- Phys_par[[19]]; #scaling factor for inflow concentration of S (-)
+I_scTP <- Phys_par[[20]]; #scaling factor for inflow concentration of total P (-)
+I_scDOP <- Phys_par[[21]]; #scaling factor for inflow concentration of diss. organic P (-)
+I_scChl <- Phys_par[[22]]; #scaling factor for inflow concentration of Chl a (-)
+I_scDOC <- Phys_par[[23]]; #scaling factor for inflow concentration of DOC  (-)
 
 
 # Unpack the more site specific parameter values from input array "Bio_par"
 
-swa_b0 <- Bio_par[1]; 	# non-PAR light atteneuation coeff. (m-1)
-swa_b1 <- Bio_par[2]; 	#  PAR light atteneuation coeff. (m-1)
-S_res_epi <- Bio_par[3]; #Particle resuspension mass transfer coefficient, epilimnion (m day-1, dry)
-S_res_hypo <- Bio_par[4]; #Particle resuspension mass transfer coefficient, hypolimnion (m day-1, dry)
-H_sed <- Bio_par[5]; 	#height of active sediment layer (m, wet mass)
-Psat_L <- Bio_par[6]; 	#Half saturation parameter for Langmuir isotherm
-Fmax_L <- Bio_par[7]; 	#Scaling parameter for Langmuir isotherm
-w_s <- Bio_par[8]; 	#settling velocity for S (m day-1)
-w_chl <- Bio_par[9]; 	#settling velocity for Chl a (m day-1)
-Y_cp <- Bio_par[10]; 	#yield coefficient (chlorophyll to carbon) * (carbon to phosphorus) ratio (-)
-m_twty <- Bio_par[11]; 	#loss rate (1/day) at 20 deg C
-g_twty <- Bio_par[12]; 	#specific growth rate (1/day) at 20 deg C
-k_twty <- Bio_par[13]; 	#specific Chl a to P transformation rate (1/day) at 20 deg C
-dop_twty <- Bio_par[14]; #specific DOP to P transformation rate (day-1) at 20 deg C
-P_half <- Bio_par[15]; 	#Half saturation growth P level (mg/m3)
+swa_b0 <- Bio_par[[1]]; 	# non-PAR light atteneuation coeff. (m-1)
+swa_b1 <- Bio_par[[2]]; 	#  PAR light atteneuation coeff. (m-1)
+S_res_epi <- Bio_par[[3]]; #Particle resuspension mass transfer coefficient, epilimnion (m day-1, dry)
+S_res_hypo <- Bio_par[[4]]; #Particle resuspension mass transfer coefficient, hypolimnion (m day-1, dry)
+H_sed <- Bio_par[[5]]; 	#height of active sediment layer (m, wet mass)
+Psat_L <- Bio_par[[6]]; 	#Half saturation parameter for Langmuir isotherm
+Fmax_L <- Bio_par[[7]]; 	#Scaling parameter for Langmuir isotherm
+w_s <- Bio_par[[8]]; 	#settling velocity for S (m day-1)
+w_chl <- Bio_par[[9]]; 	#settling velocity for Chl a (m day-1)
+Y_cp <- Bio_par[[10]]; 	#yield coefficient (chlorophyll to carbon) * (carbon to phosphorus) ratio (-)
+m_twty <- Bio_par[[11]]; 	#loss rate (1/day) at 20 deg C
+g_twty <- Bio_par[[12]]; 	#specific growth rate (1/day) at 20 deg C
+k_twty <- Bio_par[[13]]; 	#specific Chl a to P transformation rate (1/day) at 20 deg C
+dop_twty <- Bio_par[[14]]; #specific DOP to P transformation rate (day-1) at 20 deg C
+P_half <- Bio_par[[15]]; 	#Half saturation growth P level (mg/m3)
 
 
 Nz<-length(zz); #total number of layers in the water column
