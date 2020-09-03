@@ -172,7 +172,7 @@ MixStat <- matrix(nrow=20,ncol=length(tt))
 
 # Initial profiles
   Az <- approx(In_Z,In_Az,zz)$y
-  Vz <- dz * (Az + c(Az[2:length(Az)],0)) / 2;
+  Vz <- dz[[1]] * (Az + c(Az[2:length(Az)],0)) / 2
 
    T0 <- approx(In_Z,In_Tz,zz+dz/2)$y; # Initial temperature distribution (deg C)
    C0 <- approx(In_Z,In_Cz,zz+dz/2)$y; # Initial passive tracer distribution (-)
