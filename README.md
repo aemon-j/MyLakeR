@@ -24,7 +24,7 @@ meteo_mylake(meteo_file="LakeEnsemblR_meteo_standard.csv",
              folder=file.path(mylake_path,"extdata","example"))
              
 # config file already created for Vansjø in correct format
-# located in ".../extdata/example/MyLake/mylake_config_final.Rdata"
+# located in ".../extdata/example/MyLake/mylake.Rdata"
 
 # create initial profile file from standardized initial conditions into format required by MyLake
 init_mylake(wtemp_file="LakeEnsemblR_wtemp_profile_standard.csv",

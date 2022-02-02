@@ -9,3 +9,4 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports: akima, chron, dplyr, gotmtools
+RoxygenNote: 7.1.2
