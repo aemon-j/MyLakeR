@@ -12,7 +12,7 @@
 #'Jorrit Mesman, Tadhg Moore
 #'@export
 
-run_mylake <- function(sim_folder = ".", config_dat = "mylake.Rdata",
+run_mylake <- function(sim_folder = ".", config_dat = "mylake_config_final.Rdata",
                        init_dat = "mylake_init.Rdata"){
   
   ##############
