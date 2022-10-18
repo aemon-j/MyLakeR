@@ -1,6 +1,6 @@
 config_mylake <- function(config_file, model = 'MyLake', folder = '.',
                           config_dat = "mylake_config_final.Rdata",
-                          config_template = "mylake_config_template.Rdata"){
+                          config_template = "mylake.Rdata"){
   
   setwd(folder)
   
