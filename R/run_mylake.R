@@ -22,6 +22,9 @@ run_mylake <- function(sim_folder = ".", config_dat = "mylake_config_final.Rdata
   # load required data:
   load(file.path(mylake_path, "extdata", "albedot1.bin"), envir = .GlobalEnv)
   
+  oldwd <- getwd()
+  on.exit(setwd(oldwd))
+  
   setwd(sim_folder)
   meteo <- read.table(file.path("MyLake", "meteo_file.dat"))
   
