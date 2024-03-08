@@ -308,7 +308,7 @@ if(IceIndicator==0){
 }
 
 # Addition JPM, 2024-03-08: avoid errors in regions with polar nights
-if(all(is.na(PAR_Z))){
+if(all(is.na(PAR_z))){
   PAR_z[is.na(PAR_z)] <- 0.0
 }
 
