@@ -307,6 +307,11 @@ if(IceIndicator==0){
         Qsw  * exp(-lambdaz_wtot_avg * zz)
 }
 
+# Addition JPM, 2024-03-08: avoid errors in regions with polar nights
+if(all(is.na(PAR_z))){
+  PAR_z[is.na(PAR_z)] <- 0.0
+}
+
 #RPT flexible sedimentation rate; default integer 'w_chl' is made column vector
 w_chl <- (apply(cbind(PAR_sat, PAR_z), 1, min)/PAR_sat)/(apply(cbind(3*P_half, Pz), 1, min)/(3*P_half))-1
 w_chl[w_chl< -0.2] <- -0.2; # upper and lower limit for w_chl
